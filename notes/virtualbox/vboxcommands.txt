@@ -1,0 +1,1 @@
+[C:\Program Files]\Oracle\VirtualBox\VBoxManage startvm "Ubuntu-test" --type gui|headless|sdl

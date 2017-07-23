@@ -1,0 +1,148 @@
+Branching Model (proposed):
+master:					Main branch.  Represents released code. Merges from staging.
+staging:				Assembly branch for next release. Merges from hotfix/development.  Merges to Master.
+hotfix-<fixnumber>		hotfix branch for mustfix items.  branched from master.  Merges to staging/development.
+development				main dev branch.  branched from master.  Merges to staging.
+feature-<featurename>	Individual feature branches.  Merges to Development.
+
+Git configuration items:
+List configuration:			git config --list
+set username:				git config --global user.name "John Doe"
+set email:					git config --global user.email johndoe@example.com
+set editorpath (notepad++):	git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -nosession"
+
+-- add reference to global .gitignore 
+git config --global core.excludesfile %USERPROFILE%\.gitignore
+This will result in an entry in your .gitconfig that looks like this:
+excludesfile = {path-to-home-dir}/.gitignore
+	
+--get commit history
+%h Abbreviated commit hash
+%an author name
+%ar author date relative
+%s subject
+git log --pretty=format:"%h - %an, %ar : %s"
+
+Git commands
+
+Set up local reposito
+1.  Create Central repository in repository folder (local version of origin)
+	git init --bare <repositoryName>
+	
+2.  Create Local repository
+	git init <repositoryname>
+	git clone <centralrepositorypath> (Clone from central repo)
+	
+Branch management:
+3.	See list of branches from repository (shows active as well)
+	git branch
+
+4.  Create new branch
+	git branch <newbranchname>
+
+5.	Checkout Branch
+	git checkout <branchname>
+
+6.  Delete branch
+	git branch -d <branchname> (will not delete branches with unmerged commits)
+	-or-
+	git branch -D <branchname> (Force delete of branch)
+
+7.	Delete remote branch
+	git push origin --delete <branchname>	
+	
+8.	Rename current branch
+	git branch -m <new branch name>
+
+	
+While working:	
+
+9.  Add Files to Local Repository (This also needs to be done after modifying a script)
+	-Use git add to track file
+	git add <filename> | git add .
+	
+When done:	
+10. Commit Changes (after adding files)
+	-git commit (Will be presented with text editor for comments)
+	-git commit -m "Enter comments here" (Add comments manually)
+	
+	
+Examples"	
+11.	Adding a central repo as origin for the local project
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin <Central Repo Path>
+	git push -u origin master
+	
+12.	Pulling changes from central repository
+	git pull origin <branchname>
+
+
+Master/Development model commands:
+
+Creating a feature branch:
+	git checkout -b feature-<Feature Name> development
+
+Merging feature to develop:
+	git checkout development
+	git merge --no-ff Feature-<Feature Name>
+	git branch -d Feature-<Feature Name>
+	git push origin develop (If there is a central repo)
+	
+	echo "# test" >> README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git remote add origin https://github.com/JasonBuss/test.git
+	git push -u origin master	
+	
+Bitbucket
+	
+Starting from scratch:
+Setup local and add origin: 
+	mkdir /path/to/your/project
+	cd /path/to/your/project
+	git init
+	git remote add origin https://jtbuss@bitbucket.org/jtbuss/testrepo.git
+
+Create first file, commit and push:
+
+	echo "Jason Buss" >> contributors.txt
+	git add contributors.txt
+	git commit -m 'Initial commit with contributors'
+	git push -u origin master
+
+
+Existing project:
+	cd /path/to/my/repo
+	git remote add origin https://jtbuss@bitbucket.org/jtbuss/testrepo.git
+	git push -u origin --all # pushes up the repo and its refs for the first time
+	git push -u origin --tags # pushes up any tags
+	
+	
+git remote add origin https://github.com/CustomerFX/SomeProject.git
+git push -u origin master
+
+
+delete remote branch:
+git push origin --delete <branchName>
+
+add remote tracking:
+git branch --set-upstream local-branch-name origin/remote-branch-name
+
+--remove all unstaged files
+git checkout -- .
+
+--enable longfile support
+git config --global core.longpaths true
+
+--turn off yes/no prompts
+set GIT_ASK_YESNO=false
+
+--Force push
+git push origin master --force
+
+--discard untracked files and unstaged changes
+git clean -df
+git checkout -- .

@@ -1,0 +1,17 @@
+h2. Heading level two
+ 
+* this 
+* becomes
+* a bulleted  list
+ 
+h3. Heading level three
+ 
+# this
+# becomes 
+# a numbered  list
+ 
+You can easily make *bold text*  and _italic text_ like so.
+ 
+bq. Quoted text is also easy.
+ 
+Here is some "hyperlinked text":http://google.com/

@@ -1,0 +1,132 @@
+--(cygwin) creating a permanent mount point
+-- create folder under ~
+mkdir /projects
+
+--mount folder
+mount c:/users/jtbAdmin/Projects ~/projects
+
+-- check mtab for settings
+nano /etc/mtab
+
+--copy line for mount and paste into fstab
+nano /etc/fstab
+
+
+--Install Git
+
+$ sudo add-apt-repository ppa:git-core/ppa
+$ sudo apt-get update
+$ sudo apt-get install git
+
+
+--Make Directory
+mkdir <directoryname>
+
+--Remove Directory
+rmdir <directoryname>
+
+remove file
+rm <filename>
+rm -r <Foldername> //Deletes all
+
+--Switch Workspaces
+<Ctrl><Alt>-(Arrow keys)
+
+--Reboot
+sudo reboot
+
+--shutdown
+sudo shutdown -h now
+http://dev.mysql.com/downloads/repo/apt/
+
+--Installing mySql
+(http://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb)
+navigate to http://dev.mysql.com/downloads/repo/apt/
+$ wget <Downloadlink from above>
+$ sudo dpkg -i mysql-apt-config_0.6.0-1_all.deb
+$ sudo apt-get update
+$ sudo apt-get install mysql-server
+$ sudo mysql_secure_installation
+$ sudo apt-get install mysql-workbench
+
+--connecting to mysql
+mysql --user root -p
+
+--Installing SSH Server
+sudo apt install openssh-server
+
+<<<<<<< HEAD
+--Installing putty-tools
+sudo apt-get install putty-tools
+=======
+--restart ssh
+sudo service ssh restart
+>>>>>>> 5ca3b3139e4542282ca505c8f00725e45072405d
+
+--show up addresses
+ip addr show
+
+-- install pico (text editor)
+sudo apt-get install alpine-pico
+
+--load file for editing 
+pico <filename>
+nano -v <filename> --Open readonly
+
+
+--adding users
+Login as root or use su command
+
+adduser <username>
+
+--set as superuser (add to sudo group)
+gpasswd -a <username> sudo
+
+
+--environment path (for bash scripts)
+echo $PATH  --display current path
+
+sudo nano /etc/environment --to edit path (~/bin, for example)
+
+# logout and login.
+
+-- setting up virtual hosts (Apache)
+
+--create directory structure
+sudo mkdir -p /var/www/example.com/public_html
+
+--grant permissions
+sudo chown -R $USER:$USER /var/www/example.com/public_html
+sudo chmod -R 755 /var/www
+
+--create demo pages
+nano /var/www/example.com/public_html/index.html
+
+<html>
+  <head>
+    <title>Welcome to Example.com!</title>
+  </head>
+  <body>
+    <h1>Success!  The example.com virtual host is working!</h1>
+  </body>
+</html>
+
+--create new virtual host files
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/example.com.conf
+
+sudo nano /etc/apache2/sites-available/example.com.conf
+
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    ServerName example.com
+    ServerAlias www.example.com
+    DocumentRoot /var/www/example.com/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+--enable new virtual host files
+sudo a2ensite example.com.conf
+sudo service apache2 restart
+
+--set up local hosts file

@@ -1,0 +1,32 @@
+1.	Initializing Repository
+	git init <repositoryName>
+
+2.	Creating Remote repository
+	(Create Private repository on GitHub using CFX Account, adding in individual CFX users as contributors)
+	(Note url to project.  Example:  https://github.com/CustomerFX/RepositoryName.git)
+	
+3.  Add remote repository reference to local repository
+	git remote add origin https://github.com/CustomerFX/RepositoryName.git
+	
+4.	Branch from "Master"
+	git checkout <Branch>
+	- or - 
+	git checkout -b "NewBranch"
+
+5.  Do work in new branch.
+
+6.  Add items
+	git add .
+	- or -
+	git add <filename>
+
+7.  Commit changes (Commit early, commit often)
+	git commit -m "Commit notes"
+
+8.  Merge changes into master (You need to be ON master for this)
+	git checkout master
+	git merge --no-ff <branchname>
+
+9.  Push to master.
+	git push origin master
+	
