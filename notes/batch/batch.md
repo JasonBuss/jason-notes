@@ -1,7 +1,24 @@
 # Batch file / Command line examples
 
-## Example of implementing muliple user options in batch file
+## Adding folder to PATH environment variable (Temporarily?)
+`set PATH=%PATH%;C:\YourFolderpath`
 
+## Remove directory - RD
+```
+Syntax
+      RD pathname
+      RD /S pathname
+      RD /S /Q pathname
+   
+Key
+   /S  : Delete all files and subfolders
+         in addition to the folder itself.
+         Use this to remove an entire folder tree.
+
+   /Q  : Quiet - do not display Y/N confirmation
+```
+   
+## Example of implementing muliple user options in batch file
 ```
 @echo off
 setlocal enabledelayedexpansion
