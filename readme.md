@@ -6,9 +6,9 @@ Included:
 
 * [Batch](notes/batch/batch.md)
 * [GitCommands](notes/git/gitcommands.md)
-* Linux
-* Python
-* sql
-* virtualbox
+* [Linux](notes/linux/shellcommands.md)
+* [Python](notes/python/python.md)
+* [sql](notes/sql/sql_notes.md)
+* [virtualbox](notes/virtualbox/virtualbox_notes.md)
 
 [customerfx](http://www.customerfx.com)
