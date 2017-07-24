@@ -37,6 +37,7 @@ sudo reboot
 
 --shutdown
 sudo shutdown -h now
+
 http://dev.mysql.com/downloads/repo/apt/
 
 --Installing mySql

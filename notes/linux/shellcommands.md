@@ -1,4 +1,4 @@
-# Linxux shell commands
+# Linux shell commands
 
 # Coming Soon!
 
