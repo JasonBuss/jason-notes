@@ -17,3 +17,22 @@ SELECT
 FROM sys.databases 
 WHERE database_id < 5;
 ```
+
+## Linked Servers
+
+### Example
+```
+EXEC master.dbo.sp_addlinkedserver 
+                            @server = N'SERVERNAME', 
+                            @srvproduct=N'', 
+                            @provider=N'SQLNCLI', 
+                            @datasrc=N'SERVERNAME', 
+                            @catalog=N'master',
+                            @provstr='Integrated Security=SSPI;'
+GO
+EXEC sp_addlinkedsrvlogin 'SERVERNAME', true  
+go
+```
+
+[home](/jason-notes)<br>
+[customerfx](http://www.customerfx.com)<br>

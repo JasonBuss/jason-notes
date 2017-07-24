@@ -163,6 +163,5 @@ or
 - `git checkout -- .`
 
 
-[home](/jason-notes)
-
-[customerfx](http://www.customerfx.com)
+[home](/jason-notes)<br>
+[customerfx](http://www.customerfx.com)<br>
