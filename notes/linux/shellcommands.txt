@@ -56,13 +56,10 @@ mysql --user root -p
 --Installing SSH Server
 sudo apt install openssh-server
 
-<<<<<<< HEAD
 --Installing putty-tools
 sudo apt-get install putty-tools
-=======
 --restart ssh
 sudo service ssh restart
->>>>>>> 5ca3b3139e4542282ca505c8f00725e45072405d
 
 --show up addresses
 ip addr show
