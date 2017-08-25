@@ -31,4 +31,3 @@ h3. Heading level three
 `Here is some "hyperlinked text":http://google.com/`
 
 [home](/jason-notes)<br>
-[customerfx](http://www.customerfx.com)<br>

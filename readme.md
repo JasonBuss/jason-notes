@@ -14,4 +14,3 @@ Included:
 * [VBScript](notes/vbscript/vbscript.md)
 
 [Main](http://jasonbuss.net)
-[customerfx](http://www.customerfx.com)

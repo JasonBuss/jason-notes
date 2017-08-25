@@ -11,4 +11,3 @@
 * separate - Starts a VM with detachable UI. (Experimental)
 
 [home](/jason-notes)<br>
-[customerfx](http://www.customerfx.com)<br>
