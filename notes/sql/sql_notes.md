@@ -34,5 +34,14 @@ EXEC sp_addlinkedsrvlogin 'SERVERNAME', true
 go
 ```
 
+## Table Variables
+```
+Declare @TableName Table (
+  field1 char(12),
+  field2 datetime,
+  field3 varchar(32)
+)
+```
+
 [home](/jason-notes)<br>
 [customerfx](http://www.customerfx.com)<br>
