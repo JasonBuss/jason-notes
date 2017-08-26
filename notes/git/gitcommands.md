@@ -112,7 +112,10 @@ git push -u origin master
 git merge --no-ff Feature-<Feature Name>
 git branch -d Feature-<Feature Name>
 git push origin develop (If there is a central repo)
+<<<<<<< HEAD
 ```
+=======
+>>>>>>> 9ca5895432898f5f9882687a869f333b22f17f7d
 
 echo "# test" >> README.md
 git init
@@ -120,7 +123,11 @@ git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/JasonBuss/test.git
 git push -u origin master
+<<<<<<< HEAD
 
+=======
+```
+>>>>>>> 9ca5895432898f5f9882687a869f333b22f17f7d
 
 
 #### Bitbucket
