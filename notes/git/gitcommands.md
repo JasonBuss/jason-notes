@@ -114,17 +114,22 @@ git branch -d Feature-<Feature Name>
 git push origin develop (If there is a central repo)
 ```
 
+I dunno what
+
+```
 echo "# test" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/JasonBuss/test.git
 git push -u origin master
+```
 
 #### Bitbucket
 
 * Starting from scratch:
 - Setup local and add origin:
+-
 ```
 mkdir /path/to/your/project
 cd /path/to/your/project
