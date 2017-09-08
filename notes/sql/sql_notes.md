@@ -48,4 +48,12 @@ Declare @TableName Table (
 select replace(newid(), '-', '')
 ```
 
+## Insert Into new Table
+```
+SELECT *
+INTO newtable
+FROM oldtable
+WHERE condition;
+```
+
 [home](/jason-notes)<br>
