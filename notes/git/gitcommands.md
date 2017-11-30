@@ -39,17 +39,17 @@ This will result in an entry in your .gitconfig that looks like this:
 ## Git commands
 
 ### Set up local repository
-
+```
 1. Create Central repository in repository folder (local version of origin)
 - `$ git init --bare <repositoryName>`
 
 2. Create Local repository
 - `$ git init <repositoryname>`
 - `$ git clone <centralrepositorypath>` _(Clone from central repo)_
-
+```
 
 ### Branch management:
-
+```
 3. See list of branches from repository _(shows active as well)_
 - `$ git branch`
 
@@ -69,14 +69,13 @@ or
 
 8.	Rename current branch
 - `git branch -m <new branch name>`
-
-
+```
 #### While working:
-
+```
 9.	Add Files to Local Repository (This also needs to be done after modifying a script)
 	Use git add to track file
 - `git add <filename> | git add .`
-
+```
 
 #### When done:
 
