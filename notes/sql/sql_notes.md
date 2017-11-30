@@ -56,4 +56,24 @@ FROM oldtable
 WHERE condition;
 ```
 
+## scripts to return enable/disable scripts for all triggers in a DB
+```
+--script to create disable trigger statments for all active triggers in the current DB
+SELECT  
+     'DISABLE TRIGGER ' + TRIG.name + ' ON SYSDBA.' + TAB.name + ';'
+FROM [sys].[triggers] as TRIG 
+inner join sys.tables as TAB 
+on TRIG.parent_id = TAB.object_id 
+where trig.is_disabled = 0
+order by TAB.name, TRIG.name
+
+--script to create enable trigger statments for all inactive triggers in the current DB
+SELECT  
+     'ENABLE TRIGGER ' + TRIG.name + ' ON SYSDBA.' + TAB.name + ';'
+FROM [sys].[triggers] as TRIG 
+inner join sys.tables as TAB 
+on TRIG.parent_id = TAB.object_id 
+where trig.is_disabled = 1
+order by TAB.name, TRIG.name
+```
 [home](/jason-notes)<br>
