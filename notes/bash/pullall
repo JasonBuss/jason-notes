@@ -1,0 +1,12 @@
+#!/bin/sh
+
+for d in */ ; do
+    # echo "$d"
+    cd "$d"
+    if [ -d ".git" ]; then
+    	git pull origin master
+    	# echo "Git folder"
+    	# ls -la
+	fi
+    cd ..
+done
