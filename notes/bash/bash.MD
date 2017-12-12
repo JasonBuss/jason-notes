@@ -21,3 +21,5 @@ for d in */ ; do
     cd ..
 done
 ```
+
+[home](/jason-notes)<br>
