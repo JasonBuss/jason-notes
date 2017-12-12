@@ -13,5 +13,6 @@ Included:
 * [VirtualBox](notes/virtualbox/virtualbox_notes.md)
 * [VBScript](notes/vbscript/vbscript.md)
 * [Crystal Reports](notes/crystal_reports/crystal_reports.md)
+* [bash](notes/bash/bash.MD)
 
 [Main](http://jasonbuss.net)
