@@ -14,6 +14,6 @@ Included:
 * [VBScript](notes/vbscript/vbscript.md)
 * [Crystal Reports](notes/crystal_reports/crystal_reports.md)
 * [bash](notes/bash/bash.MD)
-* [misc](notes/misc/misc.MD)
+* [misc](notes/misc/misc.md)
 
 [Main](http://jasonbuss.net)
