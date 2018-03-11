@@ -185,5 +185,69 @@ git clean -df
 git checkout -- .
 ```
 
+* start the ssh-agent in the background
+```
+eval $(ssh-agent -s)
 
+ssh-add ~/.ssh/id_rsa
+```
+
+* Generating a new SSH key
+```
+Open Git Bash.
+
+Paste the text below, substituting in your GitHub email address.
+
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+This creates a new ssh key, using the provided email as a label.
+
+Generating public/private rsa key pair.
+When you're prompted to "Enter a file in which to save the key," press Enter. This accepts the default file location.
+
+ Enter a file in which to save the key (/c/Users/you/.ssh/id_rsa):[Press enter]
+At the prompt, type a secure passphrase. For more information, see "Working with SSH key passphrases".
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+
+Adding or changing a passphrase
+You can change the passphrase for an existing private key without regenerating the keypair by typing the following command:
+
+ssh-keygen -p
+# Start the SSH key creation process
+Enter file in which the key is (/Users/you/.ssh/id_rsa): [Hit enter]
+Key has comment '/Users/you/.ssh/id_rsa'
+Enter new passphrase (empty for no passphrase): [Type new passphrase]
+Enter same passphrase again: [One more time for luck]
+Your identification has been saved with the new passphrase.
+```
+
+
+* Auto-launching ssh-agent on Git for Windows
+```
+If you're using Git Shell that's installed with GitHub Desktop, you don't need to follow these steps. GitHub Desktop automatically launches ssh-agent for you.
+
+Otherwise, follow these steps to run ssh-agent automatically when you open bash or Git shell. Copy the following lines and paste them into your ~/.profile or ~/.bashrc file in Git shell:
+
+env=~/.ssh/agent.env
+
+agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
+
+agent_start () {
+    (umask 077; ssh-agent >| "$env")
+    . "$env" >| /dev/null ; }
+
+agent_load_env
+
+# agent_run_state: 0=agent running w/ key; 1=agent w/o key; 2= agent not running
+agent_run_state=$(ssh-add -l >| /dev/null 2>&1; echo $?)
+
+if [ ! "$SSH_AUTH_SOCK" ] || [ $agent_run_state = 2 ]; then
+    agent_start
+    ssh-add
+elif [ "$SSH_AUTH_SOCK" ] && [ $agent_run_state = 1 ]; then
+    ssh-add
+fi
+
+unset env
+```
 [home](/jason-notes)<br>
